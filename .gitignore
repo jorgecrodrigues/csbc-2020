@@ -1,0 +1,9 @@
+# NPM
+node_modules
+
+# WEBPACK BUILD
+dist
+
+# EDITOR
+.vscode
+.idea
