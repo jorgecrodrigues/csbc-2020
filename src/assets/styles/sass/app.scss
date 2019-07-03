@@ -8,9 +8,37 @@ body {
   background: white;
 }
 
-@keyframes shake {
-  50% {
-    transform: rotate(1.2deg);
+$animation-duration: 20s;
+
+@keyframes _shake {
+  10% {
+    transform: none;
+  }
+  @for $i from 1 through 20 {
+    #{$i * 5}% {
+      @if (($i *5) > 15 and ($i * 5) < 90) {
+        @if ($i  % 2 != 0) {
+          transform: none;
+        } @else {
+          transform: rotate(1.2deg);
+        }
+      }
+    }
+  }
+  91% {
+    transform: none;
+  }
+}
+
+@keyframes _plug {
+  @for $i from 1 through 20 {
+    #{$i * 5}% {
+      @if (($i *5) > 10 and ($i * 5) < 90) {
+        transform: translate(-250px, -190px)
+      } @else {
+        transform: translate(-265px, -190px)
+      }
+    }
   }
 }
 
@@ -22,61 +50,41 @@ body {
   display: flex;
 
   &-sun {
-    width: 60%;
+    width: 30%;
     max-width: 1000px;
 
     &-sunbeams {
-      // transform-origin: center;
-      animation-duration: 3s;
+      animation-duration: $animation-duration;
       animation-delay: 0s;
       animation-fill-mode: forwards;
       animation-iteration-count: infinite;
       animation-timing-function: ease-in-out;
       animation-direction: reverse;
-      animation-name: shake;
+      animation-name: _shake;
     }
 
-    &-circuit {
+    &-chip {
+      animation-duration: $animation-duration;
+      animation-delay: 0s;
+      animation-fill-mode: forwards;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease-in-out;
+      animation-direction: reverse;
+      animation-name: _plug;
     }
   }
 }
 
-
-@keyframes circuit_animated_1 {
-  0% {
-    stop-color: yellow;
+$unit: '%';
+@for $i from 1 through 5 {
+  @keyframes circuit_animated_#{$i} {
+    #{$i*10 + $unit} {
+      stop-color: yellow;
+    }
   }
 }
 
-@keyframes circuit_animated_2 {
-  20% {
-    stop-color: yellow;
-  }
-}
-
-@keyframes circuit_animated_3 {
-  40% {
-    stop-color: yellow;
-  }
-}
-
-@keyframes circuit_animated_4 {
-  60% {
-    stop-color: yellow;
-  }
-}
-
-@keyframes circuit_animated_5 {
-  80% {
-    stop-color: yellow;
-  }
-}
-
-#circuit_animated stop:nth-child(1),
-#circuit_animated stop:nth-child(2),
-#circuit_animated stop:nth-child(3),
-#circuit_animated stop:nth-child(4),
-#circuit_animated stop:nth-child(5) {
+#circuit_animated stop {
   animation-duration: 4s;
   animation-delay: 0s;
   animation-fill-mode: forwards;
