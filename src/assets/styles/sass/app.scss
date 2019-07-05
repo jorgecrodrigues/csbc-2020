@@ -10,12 +10,26 @@ body {
 
 $animation-duration: 20s;
 
-@keyframes rotation {
-  1% {
+@keyframes andando {
+  0% {
+    margin-left: 15px
+  }
+  50% {
+    margin-left: 450px;
+  }
+  100% {
+    margin-left: 15px;
+  }
+}
+
+
+@keyframes rodando {
+  10% {
     transform: none;
   }
   50% {
     transform: rotate(360deg);
+    margin-left: 38%;
   }
   100% {
     transform: rotate(0deg);
@@ -66,7 +80,8 @@ $animation-duration: 20s;
   &-sun {
     width: 30%;
     max-width: 1000px;
-    animation: rotation 3.5s 1 linear forwards;
+    animation: andando  2s 1 linear,
+               rodando 3.5s 2.1s 1 linear forwards;
 
     &-sunbeams {
       animation-duration: $animation-duration;
