@@ -16,11 +16,10 @@ $animation-duration: 20s;
   }
   50% {
     transform: rotate(360deg);
-    margin-left: 70%;
   }
   100% {
     transform: rotate(0deg);
-    margin-left: 0px;
+    margin-left: 68%;
   }
 }
 
@@ -59,14 +58,15 @@ $animation-duration: 20s;
 .wrap {
   width: 100%;
   height: 100%;
-  justify-content: center;
-  align-items: center;
   display: flex;
+  justify-content: left;
+  align-items: center;
+  margin-left: 15px;
 
   &-sun {
     width: 30%;
     max-width: 1000px;
-    animation: rotation 2.5s 1 linear;
+    animation: rotation 3.5s 1 linear forwards;
 
     &-sunbeams {
       animation-duration: $animation-duration;
