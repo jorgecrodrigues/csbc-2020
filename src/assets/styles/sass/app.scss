@@ -10,6 +10,20 @@ body {
 
 $animation-duration: 20s;
 
+@keyframes rotation {
+  1% {
+    transform: none;
+  }
+  50% {
+    transform: rotate(360deg);
+    margin-left: 70%;
+  }
+  100% {
+    transform: rotate(0deg);
+    margin-left: 0px;
+  }
+}
+
 @keyframes _shake {
   10% {
     transform: none;
@@ -52,6 +66,7 @@ $animation-duration: 20s;
   &-sun {
     width: 30%;
     max-width: 1000px;
+    animation: rotation 2.5s 1 linear;
 
     &-sunbeams {
       animation-duration: $animation-duration;
